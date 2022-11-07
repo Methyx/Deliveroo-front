@@ -1,38 +1,157 @@
 .App {
-  text-align: center;
+  /* */
+  font-family: "IBM Plex Sans", "Roboto", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HEADER  */
+header {
+  height: 60px;
+  margin: 10px;
+  align-items: center;
+
+  border-bottom: 1px solid lightgray;
+}
+header img {
+  height: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* MAIN  */
+.restaurant {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.restaurant h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.restaurant p {
+  font-size: 19px;
+  color: #9c9f9f;
+  line-height: 30px;
+  width: 90%;
+}
+.restaurant .right {
+  width: 350px;
+}
+.restaurant img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* CATEGORIES */
+.list {
+  width: 100%;
+  background-color: #f3f5f5;
+}
+.category-container {
+  width: calc(100% - 350px);
+}
+.category {
+  margin-top: 25px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.category h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/* MEALS */
+.meals {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.meal {
+  box-sizing: border-box;
+  width: calc((100% - 15px) / 2);
+  height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+}
+.meal .right {
+  width: 130px;
+  height: 130px;
+}
+.meal .left {
+  width: calc(100%);
+}
+.meal img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.meal h4 {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+.meal h5 {
+  font-size: 14px;
+  line-height: 20px;
+  max-height: 40px;
+  overflow-y: hidden;
+  margin-bottom: 10px;
+  color: #9c9f9f;
+}
+.meal p {
+  font-size: 17px;
+}
+.meal p span {
+  font-size: 15px;
+  color: #fc8002;
+  padding-left: 15px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* RESPONSIVE */
+
+@media (max-width: 1125px) {
+  .meal {
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 885px) {
+  .restaurant {
+    flex-direction: column;
+  }
+  .restaurant h1 {
+    font-size: 24px;
+  }
+  .restaurant p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  .restaurant .right {
+    width: 100%;
+  }
+  .restaurant img {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+@media (max-width: 768px) {
+  .category-container {
+    width: 100%;
   }
 }
