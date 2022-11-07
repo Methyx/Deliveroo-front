@@ -22,7 +22,8 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const BACK_URL = "http://localhost:4000/";
+      // const BACK_URL = "http://localhost:4000/";
+      const BACK_URL = "https://site--back-deliveroo--gw6mlgwnmzwz.code.run/";
       try {
         const response = await axios.get(BACK_URL);
         // console.log(response.data);
