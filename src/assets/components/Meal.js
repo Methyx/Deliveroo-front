@@ -1,7 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const Meal = ({ meal }) => {
+const Meal = ({ meal, basket, setBasket }) => {
+  // function
+  const handleOnClick = () => {
+    const basketCopy = [...basket];
+    const purchase = {
+      id: meal.id,
+      title: meal.title,
+      price: meal.price,
+    };
+    const AlreadyInIndex = basketCopy.findIndex((item) => item.id === meal.id);
+    if (AlreadyInIndex !== -1) {
+      basketCopy[AlreadyInIndex].quantity++;
+    } else {
+      purchase.quantity = 1;
+      basketCopy.push(purchase);
+    }
+    setBasket(basketCopy);
+  };
+
+  // Start here
   return (
-    <div className="meal">
+    <div className="meal" onClick={handleOnClick}>
       <div className={meal.picture ? "left" : null}>
         <h4>{meal.title}</h4>
         <h5>{meal.description}</h5>

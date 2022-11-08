@@ -20,6 +20,7 @@ function App() {
   // STATES
   const [data, setData] = useState();
   const [isLoading, setIsloading] = useState(true);
+  const [basket, setBasket] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +29,6 @@ function App() {
       // console.log(process.env.REACT_APP_BACK_URL);
       try {
         const response = await axios.get(BACK_URL);
-        console.log(response.data);
         setData(response.data);
         setIsloading(false);
       } catch (error) {
@@ -50,11 +50,18 @@ function App() {
           <div className="content container">
             <div className="list container">
               {data.categories.map((category, index) => {
-                return <Category key={index} category={category} />;
+                return (
+                  <Category
+                    key={index}
+                    category={category}
+                    basket={basket}
+                    setBasket={setBasket}
+                  />
+                );
               })}
             </div>
             <div className="panier">
-              <Panier />
+              <Panier basket={basket} setBasket={setBasket} />
             </div>
           </div>
         </div>
