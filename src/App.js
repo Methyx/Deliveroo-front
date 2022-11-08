@@ -5,6 +5,7 @@ import axios from "axios";
 import Header from "./assets/components/Header";
 import Restaurant from "./assets/components/Restaurant";
 import Category from "./assets/components/Category";
+import Panier from "./assets/components/Panier";
 
 // HOOK
 import { useEffect, useState } from "react";
@@ -24,9 +25,10 @@ function App() {
     const fetchData = async () => {
       // const BACK_URL = "http://localhost:4000/";
       const BACK_URL = "https://site--back-deliveroo--gw6mlgwnmzwz.code.run/";
+      // console.log(process.env.REACT_APP_BACK_URL);
       try {
         const response = await axios.get(BACK_URL);
-        // console.log(response.data);
+        console.log(response.data);
         setData(response.data);
         setIsloading(false);
       } catch (error) {
@@ -44,10 +46,17 @@ function App() {
       <Header />
       <main>
         <Restaurant data={data} />
-        <div className="list">
-          {data.categories.map((category, index) => {
-            return <Category key={index} category={category} />;
-          })}
+        <div className="background-gray">
+          <div className="content container">
+            <div className="list container">
+              {data.categories.map((category, index) => {
+                return <Category key={index} category={category} />;
+              })}
+            </div>
+            <div className="panier">
+              <Panier />
+            </div>
+          </div>
         </div>
       </main>
     </div>
