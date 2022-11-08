@@ -1,8 +1,8 @@
-/* @import url("./assets/css/font.css") */
+@import url("./assets/icons/icons.css");
 
 .App {
   /* */
-  font-family: "IBM Plex Sans", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .container {
   max-width: 1200px;
@@ -58,16 +58,12 @@ header img {
   display: flex;
   justify-content: space-between;
 }
-.list {
-  width: calc(100% - 350px);
-  padding: 0;
-}
-.panier {
-  width: 350px;
-  margin-top: 25px;
-}
 
 /* CATEGORIES */
+.list {
+  width: calc(100% - 370px);
+  padding: 0;
+}
 .category-container {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -139,6 +135,91 @@ header img {
   font-weight: bold;
 }
 
+/* PANIER */
+
+.panier-container {
+  width: 370px;
+  margin-top: 25px;
+}
+.panier {
+  box-sizing: border-box;
+  background-color: white;
+  width: 90%;
+  min-height: 185px;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px auto;
+  position: sticky;
+  top: 20px;
+}
+.valider {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #29cdbd;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.valider:hover {
+  cursor: pointer;
+}
+.blocked {
+  background-color: #bac3c3;
+  color: #868686;
+}
+.blocked:hover {
+  cursor: not-allowed;
+}
+.panier .vide {
+  margin: 40px auto;
+  text-align: center;
+  color: #9c9f9f;
+}
+
+/* articles */
+.articles {
+  padding-bottom: 15px;
+  border-bottom: solid 1px #9c9f9f;
+}
+.article {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: #868686;
+}
+.article .left {
+  display: flex;
+  align-items: center;
+  width: 75%;
+}
+.article button {
+  font-family: "deliveroo-icons";
+  font-size: 25px;
+  color: #29cdbd;
+  background-color: transparent;
+  border: none;
+}
+.icon-minus:hover,
+.icon-plus:hover {
+  cursor: pointer;
+}
+.count p {
+  display: flex;
+  justify-content: space-between;
+}
+.calculs {
+  color: #868686;
+  padding: 15px 0;
+  line-height: 25px;
+  border-bottom: solid 1px #9c9f9f;
+}
+.total {
+  font-size: 20px;
+  padding: 20px 0;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 1125px) {
@@ -172,7 +253,12 @@ header img {
   }
 }
 @media (max-width: 768px) {
-  .category-container {
+  .content {
+    flex-direction: column-reverse;
+  }
+  .list,
+  .panier-container,
+  .panier {
     width: 100%;
   }
 }

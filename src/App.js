@@ -60,8 +60,10 @@ function App() {
                 );
               })}
             </div>
-            <div className="panier">
-              <Panier basket={basket} setBasket={setBasket} />
+            <div className="panier-container">
+              <div className="panier">
+                <Panier basket={basket} setBasket={setBasket} />
+              </div>
             </div>
           </div>
         </div>

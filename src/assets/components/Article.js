@@ -18,11 +18,15 @@ const Article = ({ article, index, basket, setBasket }) => {
   // start here
   return (
     <div className="article">
-      <button onClick={handleMinus}>-</button>
-      <span>{article.quantity}</span>
-      <button onClick={handlePlus}>+</button>
-      <span>{article.title}</span>
-      <span>{article.price}</span>
+      <div className="left">
+        <button onClick={handleMinus} className="icon-minus"></button>
+        <p>{article.quantity}</p>
+        <button onClick={handlePlus} className="icon-plus"></button>
+        <p>{article.title}</p>
+      </div>
+      <div className="right">
+        <span>{article.price} €</span>
+      </div>
     </div>
   );
 };

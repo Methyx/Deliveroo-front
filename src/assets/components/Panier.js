@@ -12,9 +12,11 @@ const Panier = ({ basket, setBasket }) => {
   // return is here
   return (
     <div>
-      <button>Valider mon panier</button>
+      <button className={basket.length === 0 ? "valider blocked" : "valider"}>
+        Valider mon panier
+      </button>
       {basket.length === 0 ? (
-        <div className="vide">Votre panier est vide</div>
+        <p className="vide">Votre panier est vide</p>
       ) : (
         <>
           <div className="articles">
@@ -31,9 +33,19 @@ const Panier = ({ basket, setBasket }) => {
             })}
           </div>
           <div className="count">
-            <p>Sous-total : {sousTotal()}</p>
-            <p>Frais de livraison : 2,50 €</p>
-            <p>Total : {sousTotal() + 2.5}</p>
+            <div className="calculs">
+              <p>
+                Sous-total : <span>{sousTotal().toFixed(2)} €</span>
+              </p>
+              <p>
+                Frais de livraison : <span>2.50 €</span>
+              </p>
+            </div>
+            <div className="total">
+              <p>
+                Total : <span>{(sousTotal() + 2.5).toFixed(2)} €</span>
+              </p>
+            </div>
           </div>
         </>
       )}
