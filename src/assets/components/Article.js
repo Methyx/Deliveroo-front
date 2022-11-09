@@ -25,7 +25,7 @@ const Article = ({ article, index, basket, setBasket }) => {
         <p>{article.title}</p>
       </div>
       <div className="right">
-        <span>{article.price * article.quantity} €</span>
+        <span>{(article.price * article.quantity).toFixed(2)} €</span>
       </div>
     </div>
   );
